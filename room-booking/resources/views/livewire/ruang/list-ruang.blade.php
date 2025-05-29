@@ -1,8 +1,17 @@
 <div class="container mx-auto">
 <h1 class="text-2xl font-bold mb-4">List Ruang</h1>
+
+@if (session('message')) 
+<div class="bg-green-500 text-white p-4 rounded mb-4"> 
+{{ session('message') }} 
+</div> 
+@endif 
+
 <div class="flex justify-between mb-4">
-    <flux:button href="#" variant="primary">New Ruang</flux:button>
+    <flux:button :href="route('ruang.create')" variant="primary">New 
+Ruang</flux:button> 
 </div>
+
 <table class="min-w-full border-collapse border border-gray-400 mt-4">
     <thead>
         <tr class="text-left bg-gray-100">
@@ -21,8 +30,7 @@
             <td class="py-2 px-4 border border-gray-300">{{ $ruang->nama}}</td>
             <td class="py-2 px-4 border border-gray-300">{{$ruang->status }}</td>
             <td class="py-2 px-4 border border-gray-300">
-                <!-- Add your action buttons here -->
-                <flux:button href="#">Edit</flux:button>
+                <flux:button :href="route('ruang.edit', $ruang)">Edit</flux:button>
                 <flux:button variant="danger" wire:click="delete({{$ruang->id }})" wire:confirm="Are you sure?">Delete</flux:button>
             </td>
         </tr>

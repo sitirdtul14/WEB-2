@@ -12,4 +12,13 @@ class ListRuang extends Component
             'ruangs' => Ruang::all(),
         ]);
     }
+
+    public function delete($id) 
+{ 
+    $ruang = Ruang::find($id); 
+    if ($ruang) { 
+        $ruang->delete(); 
+        session()->flash('message', 'Ruang berhasil dihapus.'); 
+    } 
+} 
 }

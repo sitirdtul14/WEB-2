@@ -9,6 +9,8 @@ use App\Livewire\Counter;
 
 // Ruang
 use App\Livewire\Ruang\ListRuang;
+use App\Livewire\Ruang\CreateRuang;
+use App\Livewire\Ruang\EditRuang;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +34,5 @@ Route::get('/counter', Counter::class);
 
 // Ruang
 Route::get('/ruang', ListRuang::class)->name('ruang.index');
+Route::get('/ruang/create', CreateRuang::class)->name('ruang.create');
+Route::get('/ruang/edit/{ruang}', EditRuang::class)->name('ruang.edit');
